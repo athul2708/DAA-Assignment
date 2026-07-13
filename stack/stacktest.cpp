@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    Stack s;
+    Stack<int> s;
     cout << "Pushing elements:\n";
     s + 10;
     s + 20;

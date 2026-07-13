@@ -1,34 +1,42 @@
 #include <iostream>
 #include  "Stack.h"
 
-Stack::Stack() {
+template <typename T>
+Stack<T>::Stack() {
 	top = -1;
-	arr = new int[100];
+	arr = new T[100];
 }
 
-void Stack::operator+(int x) {
+template <typename T>
+void Stack<T>::operator+(T x) {
 	if (top == 99) {
 		std::cout << "\nStack overflow!!";
 		return;
 	}
 	arr[++top] = x;
 }
-void Stack::operator-() {
+
+template <typename T>
+void Stack<T>::operator-() {
 	if (top == -1) {
 		std::cout << "\nStack underflow!!!";
 		return;
 	}
 	top--;
 }
-int Stack::peek() {
+template <typename T>
+int Stack<T>::peek() {
 	return arr[top];
 }
-bool Stack::isEmpty() {
+template <typename T>
+bool Stack<T>::isEmpty() {
 	if (top == -1)
 		return true;
 	return false;
 }
-void Stack::display() {
+template <typename T>
+void Stack<T>::display() {
 	for (int i = 0;i <= top;i++)
 		std::cout << "\t" <<arr[i];
 }
+template class Stack<int>;
