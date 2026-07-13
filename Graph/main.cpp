@@ -1,4 +1,5 @@
 #include "Graph.h"
+#include "Graph.tpp"
 #include <iostream>
 
 using namespace std;
@@ -6,7 +7,7 @@ using namespace std;
 
 int main() {
 
-    Graph g(6);
+    Graph<int> g(6);
     g.insertEdge(0, 1);
     g.insertEdge(0, 2);
     g.insertEdge(1, 3);
