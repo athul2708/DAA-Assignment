@@ -1,30 +1,30 @@
 #pragma once
-
+template <class T>
 class Node {
 public:
-    int data;
-    Node* left;
-    Node* right;
+    T data;
+    Node<T>* left;
+    Node<T>* right;
 
-    Node(int value);
+    Node(T value);
 };
-
+template <class T>
 class Tree {
 private:
-    Node* root;
+    Node<T>* root;
 
-    Node* insert(Node* node, int value);
-    void inorder(Node* node);
-    void preorder(Node* node);
-    void postorder(Node* node);
-    bool search(Node* node, int value);
+    Node<T>* insert(Node<T>* node, T value);
+    void inorder(Node<T>* node);
+    void preorder(Node<T>* node);
+    void postorder(Node<T>* node);
+    bool search(Node<T>* node, T value);
 
 public:
     Tree();
 
-    void create(int value);
+    void create(T value);
     void inorder();
     void preorder();
     void postorder();
-    void search(int value);
+    void search(T value);
 };

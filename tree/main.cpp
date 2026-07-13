@@ -1,10 +1,11 @@
 #include "Tree.h"
+#include "Tree.tpp"
 #include <iostream>
 using namespace std;
 
 int main() {
 
-    Tree t;
+    Tree<int> t;
 
  
     t.create(50);
