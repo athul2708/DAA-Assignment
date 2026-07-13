@@ -2,12 +2,14 @@
 #include <iostream>
 using namespace std;
 
-Queue::Queue() {
+template <typename T>
+Queue<T>::Queue() {
     front = 0;
     rear = -1;
 }
 
-void Queue::operator+(int x) {
+template <typename T>
+void Queue<T>::operator+(T x) {
     if (rear == 99) {
         cout << "Queue Overflow\n";
         return;
@@ -16,7 +18,8 @@ void Queue::operator+(int x) {
     arr[++rear] = x;
 }
 
-void Queue::operator-() {
+template <typename T>
+void Queue<T>::operator-() {
     if (front > rear) {
         cout << "Queue Underflow\n";
         return;
@@ -25,7 +28,8 @@ void Queue::operator-() {
     front++;
 }
 
-void Queue::display() {
+template <typename T>
+void Queue<T>::display() {
     if (front > rear) {
         cout << "Queue is empty\n";
         return;
@@ -39,3 +43,4 @@ void Queue::display() {
 
     cout << endl;
 }
+template class Queue<int>;

@@ -1,15 +1,15 @@
 #pragma once
-
-class Queue {
+template <typename T>
+class Queue{
 private:
-    int arr[100];
+    T arr[100];
     int front;
     int rear;
 
 public:
     Queue();
 
-    void operator+(int x);  // enqueue
-    void operator-();       // dequeue
+    void operator+(T x); 
+    void operator-();      
     void display();
 };
