@@ -3,20 +3,30 @@
 #include <vector>
 using namespace std;
 vector<int> dijkstra(vector<vector<pair<int,int>>>,int);
+
 int main()
 {
-	vector<vector<pair<int, int>>> adj =
-	{ 
-	{ {1,1},{7,2} },
-	{ {1,0},{3,2},{2,3}},
-	{ {7,0},{3,1},{4,4}},
-	{ { 2,1 },{2,4}},
-	{ {4,2},{2,3}}
-	};
-	vector<int> shortest = dijkstra(adj,0);
-	for (int i = 0;i < adj.size();i++)
-		cout << "\nShortest distance to node " << i << " = " << shortest[i];
-	return 0;
+    int v, e;
+    cout << "Enter number of vertices: ";
+    cin >> v;
+    cout << "Enter number of edges: ";
+    cin >> e;
+    vector<vector<pair<int, int>>> adj(v);
+    cout << "Enter source, destination and weight of each edge:\n";
+    for (int i = 0; i < e; i++) {
+        int u, nbr, weight;
+        cin >> u >> nbr >> weight;
+        adj[u].push_back({weight, nbr});
+        adj[nbr].push_back({weight, u});
+    }
+    int source;
+    cout << "Enter source vertex: ";
+    cin >> source;
+    vector<int> shortest = dijkstra(adj, source);
+    for (int i = 0; i < adj.size(); i++)
+        cout << "\nShortest distance to node " << i
+             << " = " << shortest[i];
+    return 0;
 }
 
 vector<int> dijkstra(vector<vector<pair<int,int>>> adj,int source)
