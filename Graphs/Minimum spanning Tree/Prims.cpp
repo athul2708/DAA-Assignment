@@ -8,13 +8,16 @@ using namespace std;
 vector<int> prims(vector<vector<int>>);
 
 int main() {
-    vector<vector<int>> adj = {
-        {0, 2, 0, 6},
-        {2, 0, 3, 8},
-        {0, 3, 0, 0},
-        {6, 8, 0, 0}
-    };
-
+    int v;
+	cout << "Enter number of vertices: ";
+	cin >> v;
+	vector<vector<int>> adj(v, vector<int>(v));
+	cout << "Enter the adjacency matrix:\n";
+	for (int i = 0; i < v; i++) {
+	    for (int j = 0; j < v; j++) {
+	        cin >> adj[i][j];
+	    }
+	}
     vector<int> parent = prims(adj);
 
     for (int i = 1; i < parent.size(); i++) {
