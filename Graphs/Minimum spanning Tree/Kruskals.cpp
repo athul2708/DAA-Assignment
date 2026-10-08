@@ -7,22 +7,23 @@ using namespace std;
 vector<vector<int>> kruskals(vector<vector<int>>);
 
 int main() {
-    vector<vector<int>> adj = {
-        {0, 2, 0, 6},
-        {2, 0, 3, 8},
-        {0, 3, 0, 0},
-        {6, 8, 0, 0}
-    };
-
-    vector<vector<int>> mst = kruskals(adj);
-
-    for (auto edge : mst) {
+   int v;
+	cout << "Enter number of vertices: ";
+	cin >> v;
+	vector<vector<int>> adj(v, vector<int>(v));
+	cout << "Enter the adjacency matrix:\n";
+	for (int i = 0; i < v; i++) {
+	    for (int j = 0; j < v; j++) {
+	        cin >> adj[i][j];
+	    }
+	}
+	vector<vector<int>> mst = kruskals(adj);
+	for (auto edge : mst) {
         cout << edge[0] << " - "
             << edge[1] << " : "
             << edge[2] << endl;
     }
-
-    return 0;
+	return 0;
 }
 
 vector<vector<int>> kruskals(vector<vector<int>> adj) {
