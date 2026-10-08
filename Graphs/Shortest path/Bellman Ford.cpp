@@ -5,20 +5,28 @@ using namespace std;
 //BELLMAN FORD
 vector<int> belford(vector<vector<pair<int, int>>>&,int);
 
-int main(){
-	vector<vector<pair<int, int>>> adjlist =
-	{
-		{{2,2},{-1,1}},
-		{{1,2}},
-		{{4,3},{3,4}},
-		{{-3,1},{3,4}},
-		{{3,3}}
-	};
-	vector<int> shortest = belford(adjlist, 0);
-	for (int i = 0;i < shortest.size();i++) {
-		cout << "\nShortest distance to node " << i << " = " << shortest[i];
-	}
-	return 0;
+int main() {
+    int v, e;
+    cout << "Enter number of vertices: ";
+    cin >> v;
+    cout << "Enter number of edges: ";
+    cin >> e;
+    vector<vector<pair<int, int>>> adjlist(v);
+    cout << "Enter source, destination and weight of each edge:\n";
+    for (int i = 0; i < e; i++) {
+        int u, nbr, weight;
+        cin >> u >> nbr >> weight;
+        adjlist[u].push_back({weight, nbr});
+    }
+    int source;
+    cout << "Enter source vertex: ";
+    cin >> source;
+    vector<int> shortest = belford(adjlist, source);
+    for (int i = 0; i < shortest.size(); i++) {
+        cout << "\nShortest distance to node " << i
+             << " = " << shortest[i];
+    }
+    return 0;
 }
 
 vector<int> belford(vector<vector<pair<int, int>>>& adj,int source) {
