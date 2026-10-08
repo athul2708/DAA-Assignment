@@ -8,26 +8,26 @@ using namespace std;
 vector<vector<int>> floydwarshall(vector<vector<int>>);
 
 int main() {
-
-    vector<vector<int>> adj = {
-        {0,   2,   5, INF},
-        {INF, 0,   1,   3},
-        {INF, INF, 0,   2},
-        {INF, INF, INF, 0}
-    };
-
+    int v;
+    cout << "Enter number of vertices: ";
+    cin >> v;
+    vector<vector<int>> adj(v, vector<int>(v));
+    cout << "Enter the adjacency matrix (use 999 for no edge):\n";
+    for (int i = 0; i < v; i++) {
+        for (int j = 0; j < v; j++) {
+            cin >> adj[i][j];
+        }
+    }
     vector<vector<int>> shortest = floydwarshall(adj);
-
     for (int i = 0; i < shortest.size(); i++) {
         for (int j = 0; j < shortest[i].size(); j++) {
             if (shortest[i][j] == INF)
-                cout << "inf" << "\t";
+                cout << "inf\t";
             else
                 cout << shortest[i][j] << "\t";
         }
         cout << endl;
     }
-
     return 0;
 }
 
