@@ -13,6 +13,26 @@ public:
 	}
 };
 
+Node* createTree() {
+    int data;
+
+    cout << "Enter node data (-1 for no node): ";
+    cin >> data;
+
+    if (data == -1)
+        return nullptr;
+
+    Node* root = new Node(data);
+
+    cout << "Enter left child of " << data << endl;
+    root->left = createTree();
+
+    cout << "Enter right child of " << data << endl;
+    root->right = createTree();
+
+    return root;
+}
+
 void preorder(Node* root) {
 	cout << "\t" << root->data;
 	if (root->left != nullptr)
@@ -22,11 +42,14 @@ void preorder(Node* root) {
 }
 
 int main() {
-	Node* root = new Node(1);
-	root->left = new Node(2);
-	root->right = new Node(3);
-	root->right->right = new Node(4);
-	preorder(root);
-	return 0;
+    cout << "Create a binary tree (-1 for no node):" << endl;
+    Node* root = createTree();
+
+    cout << "\nPreorder traversal: ";
+    preorder(root);
+    cout << endl;
+
+    return 0;
 }
+
 
