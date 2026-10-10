@@ -21,12 +21,15 @@ void postorder(Node* root) {
 	cout << "\t" << root->data;
 }
 
+
 int main() {
-	Node* root = new Node(1);
-	root->left = new Node(2);
-	root->right = new Node(3);
-	root->right->right = new Node(4);
-	postorder(root);
-	return 0;
+    cout << "Create a binary tree (-1 for no node):" << endl;
+    Node* root = createTree();
+
+    cout << "\nPostorder traversal: ";
+    postorder(root);
+    cout << endl;
+
+    return 0;
 }
 
