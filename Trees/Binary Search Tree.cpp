@@ -18,24 +18,31 @@ Node* insert(Node* root, int data);
 void print(Node* root);
 
 int main() {
-
     Node* root = nullptr;
+    int n, value;
 
-    root = insert(root, 50);
-    root = insert(root, 30);
-    root = insert(root, 70);
-    root = insert(root, 20);
-    root = insert(root, 40);
-    root = insert(root, 60);
-    root = insert(root, 80);
+    cout << "\nEnter number of nodes: ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "Tree is empty";
+        return 0;
+    }
+
+    cout << "\nEnter node values: ";
+    for (int i = 0; i < n; i++) {
+        cin >> value;
+        root = insert(root, value);
+    }
+
     cout << "\nInorder traversal of bst (gives sorted): \n";
     print(root);
+    cout << endl;
 
     return 0;
 }
 
 Node* insert(Node* root, int data) {
-
     if (root == nullptr) {
         return new Node(data);
     }
@@ -51,7 +58,6 @@ Node* insert(Node* root, int data) {
 }
 
 void print(Node* root) {
-
     if (root == nullptr)
         return;
 
