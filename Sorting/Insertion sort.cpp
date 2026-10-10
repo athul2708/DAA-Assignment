@@ -6,7 +6,7 @@ int main() {
 	cout << "\nEnter array size: ";
 	int n;
 	cin >> n;
-	int* arr = new int(n);
+	int* arr = new int[n];
 	cout << "\nEnter array to sort: ";
 	for (int i = 0;i < n;i++) {
 		cin >> arr[i];
@@ -15,6 +15,7 @@ int main() {
 	insertion(arr, n);
 	for (int i = 0;i < n;i++)
 		cout << "\t" << arr[i];
+	delete[] arr;
 	return 0;
 }
 
